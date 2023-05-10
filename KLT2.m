@@ -1,7 +1,7 @@
 detector = vision.CascadeObjectDetector();
 
 % Load the video file of a face moving
-video = VideoReader("my_face.mp4");
+video = VideoReader("my_face2.mp4");
 
 % Load the initial frame of the video
 initialFrame = readFrame(video);
@@ -61,7 +61,7 @@ while hasFrame(video)
         newFramePoints = newFramePoints(x, :);
         
         % Apply the new points to the frame
-        bboxPoints = transformPointsForward(form, boundingBoxPoints);
+        boundingBoxPoints = transformPointsForward(form, boundingBoxPoints);
                 
         % Ensure bounding box stays around object as video keeps playing
         boundingBoxPoly = reshape(boundingBoxPoints', 1, []);
